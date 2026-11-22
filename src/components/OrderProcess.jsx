@@ -108,17 +108,9 @@ export default function OrderProcess() {
 
         {/* Bottom CTA */}
         <div className="mt-14 text-center">
-          <p className="mb-5 text-slate-600">
-            Ready to start your packaging journey?
-          </p>
+         
 
-          <a
-            href="/contact"
-            className="inline-flex items-center gap-3 rounded-lg bg-[#1F3A93] px-7 py-4 font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-[#14275F] hover:shadow-xl"
-          >
-            Start Your Order
-            <ArrowRight size={20} />
-          </a>
+         
         </div>
       </div>
 
