@@ -1,4 +1,6 @@
 import Carousel from "../components/Carousel";
+import CategorySlider from "../components/CategorySlider";
+import OrderProcess from "../components/OrderProcess";
 import ServiceList from "../components/ServiceList";
 import { segments, steps } from "../data/siteData";
 
@@ -23,36 +25,9 @@ export default function Home({ go }) {
         </button>
       </section>
 
-      <section className="bg-slate-50 py-14">
-        <div className={wrap}>
-          <h2 className={h2}>Who we pack for</h2>
-
-          <ul className="mt-6 flex flex-wrap gap-3">
-            {segments.map((s) => (
-              <li
-                key={s}
-                className="rounded-full border bg-white px-4 py-2 text-sm"
-              >
-                {s}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
+      <CategorySlider />
       <section className={`${wrap} py-14`}>
-        <h2 className={h2}>How an order works</h2>
-
-        <ol className="mt-8 grid gap-4 md:grid-cols-5">
-          {steps.map((s, n) => (
-            <li key={s} className="rounded-md border p-4">
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1F3A93] text-white">
-                {n + 1}
-              </span>
-              <p className="mt-3 text-sm">{s}</p>
-            </li>
-          ))}
-        </ol>
+        <OrderProcess />
       </section>
 
       <section className="bg-[#1F3A93] py-12 text-white">

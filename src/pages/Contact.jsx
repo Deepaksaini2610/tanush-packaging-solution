@@ -29,17 +29,21 @@ Hello ${C.name}, I want a quote.
 Name: ${f.name}
 Phone: ${f.phone}
 Product: ${f.product}
-Sachet size: ${f.size}
+Sachet Size: ${f.size}
 Weight: ${f.weight}
 Quantity: ${f.qty}
 Design: ${f.design}
 Note: ${f.note}
 `;
 
-    window.open(
-      `https://wa.me/${C.wa}?text=${encodeURIComponent(msg)}`,
-      "_blank",
-    );
+    // WhatsApp
+    const whatsappURL = `https://wa.me/${C.wa}?text=${encodeURIComponent(msg)}`;
+
+    // Email
+    const emailURL = `mailto:${C.email}?subject=${encodeURIComponent("New Quote Enquiry")}&body=${encodeURIComponent(msg)}`;
+
+    window.open(whatsappURL, "_blank");
+    window.location.href = emailURL;
   };
 
   const fields = [
