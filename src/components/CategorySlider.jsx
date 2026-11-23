@@ -3,23 +3,8 @@ import { useRef } from "react";
 const categories = [
   {
     title: "Masala & Spices",
-    image: "/images/masala.jpg",
+    image: "../../public/masala spices.avif",
     desc: "Premium spice sachet packing",
-  },
-  {
-    title: "Tea & Coffee",
-    image: "/images/tea.jpg",
-    desc: "Tea and coffee mini packs",
-  },
-  {
-    title: "Herbal & Ayurvedic",
-    image: "/images/herbal.jpg",
-    desc: "Herbal powder packaging",
-  },
-  {
-    title: "Protein & Supplements",
-    image: "/images/protein.jpg",
-    desc: "Supplement sachet packing",
   },
   {
     title: "Mehendi & Face Pack",
@@ -28,7 +13,7 @@ const categories = [
   },
   {
     title: "Roli, Chawal & Haldi",
-    image: "/images/roli.jpg",
+    image: "../../public/roli chawal.webp",
     desc: "Festival and puja packs",
   },
   {

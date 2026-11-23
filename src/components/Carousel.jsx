@@ -34,9 +34,9 @@ export default function Carousel({ go }) {
           <div key={n} className={`w-full shrink-0 ${s.bg}`}>
             <div className="mx-auto grid min-h-[430px] max-w-6xl items-center gap-8 px-12 py-12 md:grid-cols-2">
               <div>
-                <h1 className="text-3xl font-bold sm:text-5xl">{s.title}</h1>
+                <h1 className="text-3xl text-black font-bold sm:text-5xl">{s.title}</h1>
 
-                <p className="mt-4 text-lg">{s.text}</p>
+                <p className="mt-4 text-lg text-black">{s.text}</p>
 
                 <button
                   onClick={() => go(s.go)}

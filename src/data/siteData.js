@@ -48,7 +48,7 @@ export const steps = [
 
 export const slides = [
   {
-    bg: "bg-[#1F3A93] text-white",
+    bg: "bg-[url('../../public/sachets.webp')] bg-cover bg-center bg-no-repeat text-white",
     title: "Sachet packing from 1g to 50g, made to your order",
     text: "Tell us the product, size and quantity.",
     cta: "Get a free quote",
@@ -56,6 +56,7 @@ export const slides = [
     body: "#ffffff",
     seal: "#F39C12",
     btn: "bg-[#F39C12] text-slate-900",
+    
   },
   {
     bg: "bg-[#14275F] text-white",

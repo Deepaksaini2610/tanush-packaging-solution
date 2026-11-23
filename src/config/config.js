@@ -1,5 +1,5 @@
 export const C = {
-  name: "Tanush MiniPack",
+  name: "Tanush packaging solution",
   phone: "+91 9829810787",
   wa: "91 9829810787",
   gst: "GSTIN: XXXXXXXXXXXXXXX",

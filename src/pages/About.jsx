@@ -84,7 +84,7 @@ export default function About() {
 
           <div className="relative">
             <img
-              src="/images/about-packaging.jpg"
+              src="../../public/sachets.webp"
               alt="Sachet packaging products"
               className="h-[350px] w-full rounded-2xl object-cover shadow-2xl transition duration-700 hover:scale-105"
             />
