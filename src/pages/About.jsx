@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import sachets from "../assets/sachets.webp";
 import {
   Package,
   Target,
@@ -84,7 +85,7 @@ export default function About() {
 
           <div className="relative">
             <img
-              src="../assets/sachets.webp"
+              src={sachets}
               alt="Sachet packaging products"
               className="h-[350px] w-full rounded-2xl object-cover shadow-2xl transition duration-700 hover:scale-105"
             />

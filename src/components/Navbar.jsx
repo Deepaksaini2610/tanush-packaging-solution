@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { C, PAGES, path } from "../config/config";
+import mainLogo from '../assets/mainlogo.webp'
 
 export default function Navbar({ page }) {
   const [open, setOpen] = useState(false);
@@ -42,7 +43,7 @@ export default function Navbar({ page }) {
             className="flex items-center gap-3"
           >
             <img
-              src="/mainlogo.webp"
+              src={mainLogo}
               alt="Tanush Packaging Solution Logo"
               className="h-12 w-auto object-contain"
             />

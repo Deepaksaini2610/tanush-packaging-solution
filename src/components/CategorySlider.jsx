@@ -1,9 +1,11 @@
 import { useRef } from "react";
+import masala from '../assets/masala.avif'
+import roli from '../assets/roli.webp'
 
 const categories = [
   {
     title: "Masala & Spices",
-    image: "../assets/masala spices.avif",
+    image: masala,
     desc: "Premium spice sachet packing",
   },
   {
@@ -13,7 +15,7 @@ const categories = [
   },
   {
     title: "Roli, Chawal & Haldi",
-    image: "../assets/roli chawal.webp",
+    image: roli,
     desc: "Festival and puja packs",
   },
   {
