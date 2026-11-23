@@ -1,7 +1,7 @@
 export const C = {
   name: "Tanush packaging solution",
-  phone: "+91 9829810787",
-  wa: "91 9829810787",
+  phone: "+91 9887743377",
+  wa: "91 9887743377",
   gst: "GSTIN: XXXXXXXXXXXXXXX",
   email: "i.deepaksaini2610@gmail.com",
   city: "Alwar, Rajasthan, India",

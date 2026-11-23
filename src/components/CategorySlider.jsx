@@ -3,7 +3,7 @@ import { useRef } from "react";
 const categories = [
   {
     title: "Masala & Spices",
-    image: "../../public/masala spices.avif",
+    image: "../assets/masala spices.avif",
     desc: "Premium spice sachet packing",
   },
   {
@@ -13,7 +13,7 @@ const categories = [
   },
   {
     title: "Roli, Chawal & Haldi",
-    image: "../../public/roli chawal.webp",
+    image: "../assets/roli chawal.webp",
     desc: "Festival and puja packs",
   },
   {
