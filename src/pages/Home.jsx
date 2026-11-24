@@ -35,10 +35,8 @@ export default function Home({ go }) {
           className={`${wrap} flex flex-col justify-between gap-4 sm:flex-row`}
         >
           <div>
-            <h2 className="text-2xl font-bold">
-              Need sachets made for your product?
-            </h2>
-            <p>Share the details and get a rate.</p>
+            <h2 className="text-2xl font-bold">Your Packaging Starts Here </h2>
+            <p>Connect with us to discuss your requirements and pricing.</p>
           </div>
 
           <button

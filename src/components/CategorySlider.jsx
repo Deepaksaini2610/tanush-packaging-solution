@@ -1,6 +1,9 @@
 import { useRef } from "react";
 import masala from '../assets/masala.avif'
 import roli from '../assets/roli.webp'
+import mishri from '../assets/mishri.webp'
+import samplepack from '../assets/samplepack.webp'
+import freshner from '../assets/freshner.webp'
 
 const categories = [
   {
@@ -9,8 +12,8 @@ const categories = [
     desc: "Premium spice sachet packing",
   },
   {
-    title: "Mehendi & Face Pack",
-    image: "/images/mehendi.jpg",
+    title: "Mouth Freshner",
+    image: freshner,
     desc: "Beauty powder packaging",
   },
   {
@@ -20,12 +23,12 @@ const categories = [
   },
   {
     title: "Mukhwas & Mishri",
-    image: "/images/mukhwas.jpg",
+    image: mishri,
     desc: "Small food sachet packing",
   },
   {
     title: "Sample & Trial Packs",
-    image: "/images/sample.jpg",
+    image: samplepack,
     desc: "Custom sample packaging",
   },
 ];

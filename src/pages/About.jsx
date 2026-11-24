@@ -1,17 +1,20 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import sachets from "../assets/sachets.webp";
+import diagram from "../assets/diagram.webp";
 import {
   Package,
   Target,
   ShieldCheck,
   Palette,
   Scale,
-  Truck,
   CheckCircle,
   ArrowRight,
   Factory,
   Award,
   Users,
+  X,
+  ZoomIn,
 } from "lucide-react";
 
 import { C } from "../config/config";
@@ -50,6 +53,21 @@ const reasons = [
 
 export default function About() {
   const navigate = useNavigate();
+  const [zoom, setZoom] = useState(false);
+
+  // Esc se band karo + lightbox khula ho to page scroll band rakho
+  useEffect(() => {
+    if (!zoom) return;
+
+    const onKey = (e) => e.key === "Escape" && setZoom(false);
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [zoom]);
 
   return (
     <div className="overflow-hidden bg-white">
@@ -101,13 +119,25 @@ export default function About() {
       {/* COMPANY INTRO */}
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 md:grid-cols-2">
         <div className="relative">
-          <img
-            src="/images/packing-machine.jpg"
-            alt="Sachet packaging process"
-            className="h-[390px] w-full rounded-2xl object-cover shadow-lg"
-          />
+          <button
+            type="button"
+            onClick={() => setZoom(true)}
+            aria-label="Open diagram in full screen"
+            className="group relative block w-full cursor-zoom-in rounded-2xl bg-white p-4 shadow-lg ring-1 ring-slate-200"
+          >
+            <img
+              src={diagram}
+              alt="Sachet packaging process"
+              className="h-auto w-full rounded-xl object-contain"
+            />
 
-          <div className="absolute -right-3 -top-4 rounded-xl bg-[#F39C12] p-5 text-slate-900 shadow-lg">
+            <span className="absolute bottom-6 right-6 flex items-center gap-2 rounded-full bg-[#1F3A93] px-3 py-2 text-xs font-semibold text-white shadow-md transition group-hover:bg-[#F39C12] group-hover:text-slate-900">
+              <ZoomIn size={16} />
+              Click to enlarge
+            </span>
+          </button>
+
+          <div className="pointer-events-none absolute -right-3 -top-4 rounded-xl bg-[#F39C12] p-5 text-slate-900 shadow-lg">
             <Factory size={32} />
             <p className="mt-2 font-bold">Contract</p>
             <p className="text-sm">Packaging Unit</p>
@@ -293,6 +323,33 @@ export default function About() {
           </button>
         </div>
       </section>
+
+      {/* LIGHTBOX */}
+      {zoom && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4"
+          onClick={() => setZoom(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Diagram full screen view"
+        >
+          <button
+            type="button"
+            onClick={() => setZoom(false)}
+            aria-label="Close"
+            className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white text-slate-900 shadow-lg transition hover:bg-[#F39C12]"
+          >
+            <X size={22} />
+          </button>
+
+          <img
+            src={diagram}
+            alt="Sachet packaging process"
+            onClick={(e) => e.stopPropagation()}
+            className="max-h-[90vh] max-w-full rounded-lg bg-white object-contain p-2 shadow-2xl"
+          />
+        </div>
+      )}
     </div>
   );
 }

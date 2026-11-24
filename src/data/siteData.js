@@ -1,5 +1,7 @@
 import { C } from "../config/config";
-import sachets from '../assets/hero.png'
+import sachets from "../assets/sachets.webp";
+import roli from '../assets/roli.webp'
+
 export const sizes = [
   { g: 1, h: 52 },
   { g: 5, h: 72 },
@@ -10,15 +12,15 @@ export const sizes = [
 
 export const services = [
   [
-    "Custom printed sachets",
-    `Your artwork, colours and logo on every sachet. Minimum order ${C.moqPrinted}.`,
+    "Branded Packaging Solutions",
+    `Custom printing with your logo, brand colours and artwork ${C.moqPrinted}.`,
   ],
   [
-    "Plain sachet + sticker",
+    "Plain Packs with Brand Labels",
     `A lower-minimum option. Starts from ${C.moqPlain}.`,
   ],
   [
-    "Design support",
+    "Packaging Design Assistance",
     "Send your logo and product details. We prepare a design for approval.",
   ],
   [
@@ -48,8 +50,10 @@ export const steps = [
 
 export const slides = [
   {
-    bg: "bg-[`url(${sachets})`] bg-cover bg-center bg-no-repeat text-white",
-    title: "Sachet packing from 1g to 50g, made to your order",
+    bg: "bg-[#14275F] text-white", // fallback color agar image load na ho
+    image: sachets,
+    overlay: true, // text readable rakhne ke liye dark layer
+    title: "Custom Mini Pack Packaging from 1g to 50g",
     text: "Tell us the product, size and quantity.",
     cta: "Get a free quote",
     go: "contact",
