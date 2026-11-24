@@ -5,6 +5,7 @@ import {
   useNavigate,
   useLocation,
 } from "react-router-dom";
+
 import { useEffect } from "react";
 
 import Navbar from "./components/Navbar";
@@ -26,18 +27,20 @@ function Shell() {
     navigate(page === "home" ? "/" : `/${page}`);
   };
 
-  const page = location.pathname.replace("/", "") || "home";
+  const page = location.pathname.replace(/^\/+|\/+$/g, "") || "home";
 
   useEffect(() => {
     window.scrollTo(0, 0);
 
     const [title, desc] = META[page] || [
-      "Page Not Found | Tanush MiniPack",
-      "",
+      "Page Not Found | Tanush Packaging Solution",
+      "The page you are looking for could not be found.",
     ];
 
+    // Update page title
     document.title = title;
 
+    // Update meta description
     let meta = document.querySelector('meta[name="description"]');
 
     if (!meta) {
@@ -47,6 +50,17 @@ function Shell() {
     }
 
     meta.content = desc;
+
+    // Update canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]');
+
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.rel = "canonical";
+      document.head.appendChild(canonical);
+    }
+
+    canonical.href = `https://tanushpackagingsolution.com${location.pathname}`;
   }, [location.pathname, page]);
 
   return (
@@ -66,7 +80,9 @@ function Shell() {
       <Footer />
 
       <a
-        href={`https://wa.me/${C.wa}?text=${encodeURIComponent("Hello, I want a quote for sachet packing.")}`}
+        href={`https://wa.me/${C.wa}?text=${encodeURIComponent(
+          "Hello, I want a quote for sachet packing.",
+        )}`}
         target="_blank"
         rel="noreferrer"
         className="fixed bottom-5 right-5 rounded-full bg-green-600 px-5 py-3 font-semibold text-white shadow-lg"

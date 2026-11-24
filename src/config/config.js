@@ -18,18 +18,25 @@ export const PAGES = [
 
 export const path = (k) => (k === "home" ? "/" : `/${k}`);
 
+
 export const META = {
   home: [
-    "Tanush MiniPack | Custom Sachet Packing",
-    "Custom printed sachet packing from 1g to 50g.",
+    "Tanush Packaging Solution | Sachet & Mini Pack Packaging",
+    "Tanush Packaging Solution offers custom sachet packaging, mini packs, powder packaging, spices packaging and customized packaging solutions in India.",
   ],
-  about: ["About Us | Tanush MiniPack", "About our sachet packaging unit."],
+
+  about: [
+    "About Us | Tanush Packaging Solution",
+    "Learn about Tanush Packaging Solution, our packaging capabilities and our commitment to quality packaging solutions.",
+  ],
+
   services: [
-    "Sachet Packing Services | Tanush MiniPack",
-    "Custom printed sachets and powder filling.",
+    "Packaging Services | Tanush Packaging Solution",
+    "Explore our packaging services including sachet packing, powder packaging, spices packaging, mouth freshener packaging and mini packs.",
   ],
+
   contact: [
-    "Contact Us | Tanush MiniPack",
-    "Get a quote for custom sachet packing.",
+    "Contact Us | Tanush Packaging Solution",
+    "Contact Tanush Packaging Solution for packaging enquiries, custom packaging requirements and quotations.",
   ],
 };
