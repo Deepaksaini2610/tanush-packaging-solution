@@ -31,14 +31,8 @@ function Shell() {
 
   const page = location.pathname.replace(/^\/+|\/+$/g, "") || "home";
 
-  // Product pages apna SEO khud set karte hain (useSeo hook se)
-  const isProductPage = PRODUCTS.some((p) => p.slug === page);
-
   useEffect(() => {
     window.scrollTo(0, 0);
-
-    // Product page par title/description/canonical ko yahan override nahi karna
-    if (isProductPage) return;
 
     const [title, desc] = META[page] || [
       "Page Not Found | Tanush Packaging Solution",
@@ -69,7 +63,7 @@ function Shell() {
     }
 
     canonical.href = `https://tanushpackagingsolution.com${location.pathname}`;
-  }, [location.pathname, page, isProductPage]);
+  }, [location.pathname, page]);
 
   return (
     <div className="min-h-screen bg-white text-slate-800">
