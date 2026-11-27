@@ -1,21 +1,17 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url>
-    <loc>https://tanushpackagingsolution.com//</loc>
-  </url>
+  <url><loc>https://tanushpackagingsolution.com/</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://tanushpackagingsolution.com/about</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://tanushpackagingsolution.com/services</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://tanushpackagingsolution.com/contact</loc><lastmod>2026-11-27</lastmod></url>
 
-  <url>
-    <loc>https://tanushpackagingsolution.com/about</loc>
-  </url>
-
-  <url>
-    <loc>https://tanushpackagingsolution.com/contact</loc>
-  </url>
-
-  <url>
-    <loc>https://tanushpackagingsolution.com/services</loc>
-  </url>
+  <url><loc>https://tanushpackagingsolution.com/sachet-packaging</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://tanushpackagingsolution.com/mini-pack-packaging</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://tanushpackagingsolution.com/powder-packaging</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://tanushpackagingsolution.com/spices-packaging</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://tanushpackagingsolution.com/mouth-freshener-packaging</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://tanushpackagingsolution.com/rakhi-packaging</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://tanushpackagingsolution.com/pooja-samagri-kit-packaging</loc><lastmod>2026-11-27</lastmod></url>
 
 </urlset>

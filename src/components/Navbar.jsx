@@ -1,14 +1,22 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Phone, Menu, X, ArrowRight } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { Phone, Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 import { C, PAGES, path } from "../config/config";
+import { PRODUCTS } from "../data/products";
 import mainLogo from "../assets/mainlogo.webp";
 
 export default function Navbar({ page }) {
   const [open, setOpen] = useState(false);
+  const [mobileProducts, setMobileProducts] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { pathname } = useLocation();
 
-  // Scroll par navbar me halki shadow
+  const productActive = PRODUCTS.some((p) => pathname === `/${p.slug}`);
+
+  // Contact ko Products ke baad dikhane ke liye alag kiya
+  const mainPages = PAGES.filter(([k]) => k !== "contact");
+  const contactPage = PAGES.find(([k]) => k === "contact");
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
@@ -16,7 +24,6 @@ export default function Navbar({ page }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Menu khula ho to page scroll band
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
@@ -24,16 +31,21 @@ export default function Navbar({ page }) {
     };
   }, [open]);
 
+  // Page badalte hi mobile menu band
+  useEffect(() => {
+    setOpen(false);
+    setMobileProducts(false);
+  }, [pathname]);
+
+  const linkClass = (active) =>
+    `relative py-2 text-[15px] font-semibold tracking-tight transition-colors duration-200 after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:origin-left after:bg-[#F39C12] after:transition-transform after:duration-300 ${
+      active
+        ? "text-[#1F3A93] after:scale-x-100"
+        : "text-slate-600 after:scale-x-0 hover:text-[#1F3A93] hover:after:scale-x-100"
+    }`;
+
   const desktopLink = ([k, label]) => (
-    <Link
-      key={k}
-      to={path(k)}
-      className={`relative py-2 text-[15px] font-semibold tracking-tight transition-colors duration-200 after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:origin-left after:bg-[#F39C12] after:transition-transform after:duration-300 ${
-        page === k
-          ? "text-[#1F3A93] after:scale-x-100"
-          : "text-slate-600 after:scale-x-0 hover:text-[#1F3A93] hover:after:scale-x-100"
-      }`}
-    >
+    <Link key={k} to={path(k)} className={linkClass(page === k)}>
       {label}
     </Link>
   );
@@ -65,7 +77,6 @@ export default function Navbar({ page }) {
           <span className="hidden font-medium tracking-wide text-blue-100 sm:inline">
             Custom Sachet Packaging | 1g to 50g
           </span>
-
           <div className="ml-auto flex items-center gap-5">
             <a
               href={`tel:${C.phone}`}
@@ -97,8 +108,6 @@ export default function Navbar({ page }) {
               alt="Tanush Packaging Solution Logo"
               className="h-14 w-auto object-contain sm:h-16"
             />
-
-            {/* Mobile/tablet pe hidden, lg+ pe visible */}
             <div className="hidden leading-tight lg:block">
               <p className="text-xl font-extrabold tracking-tight text-[#1F3A93]">
                 Tanush <span className="text-[#F39C12]">Packaging</span>
@@ -112,7 +121,43 @@ export default function Navbar({ page }) {
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-8 md:flex">
             <nav className="flex items-center gap-7">
-              {PAGES.map(desktopLink)}
+              {mainPages.map(desktopLink)}
+
+              {/* Products dropdown */}
+              <div className="group relative">
+                <button
+                  type="button"
+                  aria-haspopup="true"
+                  className={`${linkClass(productActive)} inline-flex items-center gap-1`}
+                >
+                  Products
+                  <ChevronDown
+                    size={15}
+                    className="transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"
+                  />
+                </button>
+
+                <div className="invisible absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-3 opacity-0 transition duration-150 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+                  <ul className="overflow-hidden rounded-xl border border-slate-200 bg-white py-2 shadow-xl">
+                    {PRODUCTS.map((p) => (
+                      <li key={p.slug}>
+                        <Link
+                          to={`/${p.slug}`}
+                          className={`block px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-blue-50 hover:text-[#1F3A93] ${
+                            pathname === `/${p.slug}`
+                              ? "bg-blue-50 text-[#1F3A93]"
+                              : "text-slate-700"
+                          }`}
+                        >
+                          {p.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {contactPage && desktopLink(contactPage)}
             </nav>
 
             <Link
@@ -144,8 +189,50 @@ export default function Navbar({ page }) {
           }`}
         >
           <nav className="overflow-hidden bg-white">
-            <div className="flex flex-col gap-1 px-4 py-4">
-              {PAGES.map(mobileLink)}
+            <div className="flex max-h-[75vh] flex-col gap-1 overflow-y-auto px-4 py-4">
+              {mainPages.map(mobileLink)}
+
+              {/* Products accordion */}
+              <button
+                type="button"
+                onClick={() => setMobileProducts(!mobileProducts)}
+                aria-expanded={mobileProducts}
+                className={`flex items-center justify-between rounded-lg px-4 py-3 text-base font-semibold transition-colors ${
+                  productActive
+                    ? "bg-blue-50 text-[#1F3A93]"
+                    : "text-slate-700 hover:bg-slate-50"
+                }`}
+              >
+                Products
+                <ChevronDown
+                  size={18}
+                  className={`text-slate-400 transition-transform ${
+                    mobileProducts ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              {mobileProducts && (
+                <ul className="ml-4 flex flex-col border-l-2 border-slate-200 pl-2">
+                  {PRODUCTS.map((p) => (
+                    <li key={p.slug}>
+                      <Link
+                        to={`/${p.slug}`}
+                        onClick={() => setOpen(false)}
+                        className={`block rounded-md px-3 py-2.5 text-[15px] font-medium ${
+                          pathname === `/${p.slug}`
+                            ? "text-[#1F3A93]"
+                            : "text-slate-600 hover:text-[#1F3A93]"
+                        }`}
+                      >
+                        {p.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              {contactPage && mobileLink(contactPage)}
 
               <Link
                 to={path("contact")}

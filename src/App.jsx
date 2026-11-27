@@ -16,7 +16,9 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import ProductPage from "./pages/ProductPage";
 
+import { PRODUCTS } from "./data/products";
 import { C, META } from "./config/config";
 
 function Shell() {
@@ -29,8 +31,14 @@ function Shell() {
 
   const page = location.pathname.replace(/^\/+|\/+$/g, "") || "home";
 
+  // Product pages apna SEO khud set karte hain (useSeo hook se)
+  const isProductPage = PRODUCTS.some((p) => p.slug === page);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    // Product page par title/description/canonical ko yahan override nahi karna
+    if (isProductPage) return;
 
     const [title, desc] = META[page] || [
       "Page Not Found | Tanush Packaging Solution",
@@ -61,7 +69,7 @@ function Shell() {
     }
 
     canonical.href = `https://tanushpackagingsolution.com${location.pathname}`;
-  }, [location.pathname, page]);
+  }, [location.pathname, page, isProductPage]);
 
   return (
     <div className="min-h-screen bg-white text-slate-800">
@@ -73,6 +81,16 @@ function Shell() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
+
+          {/* Product pages */}
+          {PRODUCTS.map((p) => (
+            <Route
+              key={p.slug}
+              path={`/${p.slug}`}
+              element={<ProductPage slug={p.slug} />}
+            />
+          ))}
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

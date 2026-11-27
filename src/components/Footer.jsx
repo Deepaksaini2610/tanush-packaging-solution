@@ -35,8 +35,8 @@ export default function Footer() {
   ];
 
   const legal = [
-    { icon: FileText, label: "GST", value: C.gst },
-    { icon: BadgeCheck, label: "FSSAI", value: C.fssai },
+    // { icon: FileText, label: "GST", value: C.gst },
+    // { icon: BadgeCheck, label: "FSSAI", value: C.fssai },
   ];
 
   return (
@@ -126,10 +126,10 @@ export default function Footer() {
 
         {/* Business info */}
         <div>
-          <h3 className="text-sm font-bold uppercase tracking-widest text-white">
+          {/* <h3 className="text-sm font-bold uppercase tracking-widest text-white">
             Business Details
-          </h3>
-          <span className="mt-2 block h-0.5 w-10 bg-[#F39C12]" />
+          </h3> */}
+          {/* <span className="mt-2 block h-0.5 w-10 bg-[#F39C12]" /> */}
 
           <ul className="mt-5 space-y-4 text-sm">
             {legal.map(({ icon: Icon, label, value }) => (

@@ -1,7 +1,7 @@
 import { C } from "../config/config";
 import sachets from "../assets/sachets.webp";
-import roli from '../assets/roli.webp'
-
+import rakhi from "../assets/rakhi.webp";
+import poojakit from "../assets/poojakit.webp"
 export const sizes = [
   { g: 1, h: 52 },
   { g: 5, h: 72 },
@@ -24,7 +24,7 @@ export const services = [
     "Send your logo and product details. We prepare a design for approval.",
   ],
   [
-    "Powder and granule filling",
+    "Powder and Granule Filling",
     "Accurate weight filling and uniform sealing from 1g to 50g.",
   ],
 ];
@@ -36,6 +36,7 @@ export const segments = [
   "Protein and supplements",
   "Mehendi and face pack",
   "Roli, chawal, haldi, kesar",
+  "Pooja samagri kits",
   "Mukhwas and mishri",
   "Sample and trial packs",
 ];
@@ -52,8 +53,9 @@ export const slides = [
   {
     bg: "bg-[#14275F] text-white", // fallback color agar image load na ho
     image: sachets,
+    alt: "Printed sachets in different sizes from 1g to 50g",
     overlay: true, // text readable rakhne ke liye dark layer
-    title: "Custom Mini Pack Packaging from 1g to 50g",
+    title: "Custom Sachet and Mini Pack Packaging, 1g to 50g",
     text: "Tell us the product, size and quantity.",
     cta: "Get a free quote",
     go: "contact",
@@ -63,6 +65,9 @@ export const slides = [
   },
   {
     bg: "bg-[#14275F] text-white",
+    image: poojakit,
+    alt: "Pooja samagri kit with items packed in separate sealed sachets",
+    overlay: true,
     title: "Your own design on every sachet",
     text: `Printed sachets start from ${C.moqPrinted}.`,
     cta: "See our services",
@@ -72,13 +77,16 @@ export const slides = [
     btn: "bg-white text-[#14275F]",
   },
   {
-    bg: "bg-[#F39C12] text-slate-900",
-    title: "Small packs for rakhi and festival gifting",
-    text: "Roli, chawal, haldi, kesar and masala in sealed sachets.",
-    cta: "Talk to us",
+    bg: "bg-[#14275F] text-white",
+    image: rakhi,
+    alt: "Roli and chawal packed in small sealed sachets",
+    overlay: true,
+    title: "Small packs for rakhi, pooja and festival gifting",
+    text: "Roli, chawal, haldi, kesar and pooja samagri kits in sealed sachets.",
+    cta: "Get a festival pack quote",
     go: "contact",
-    body: "#1F3A93",
-    seal: "#ffffff",
-    btn: "bg-[#1F3A93] text-white",
+    body: "#ffffff",
+    seal: "#F39C12",
+    btn: "bg-[#F39C12] text-slate-900",
   },
 ];
